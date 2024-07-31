@@ -1,4 +1,4 @@
-import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react';
+import { SDKProvider, postEvent, useLaunchParams } from '@telegram-apps/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { type FC, useEffect, useMemo } from 'react';
 
@@ -32,6 +32,11 @@ const Inner: FC = () => {
       import('eruda').then((lib) => lib.default.init());
     }
   }, [debug]);
+
+  useEffect(() => {
+    postEvent('web_app_expand')
+    console.log('expanded')
+  }, [])
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
