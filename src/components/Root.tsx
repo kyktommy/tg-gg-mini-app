@@ -35,7 +35,7 @@ const Inner: FC = () => {
 
   useEffect(() => {
     postEvent('web_app_expand')
-    console.log('expanded')
+    postEvent('web_app_setup_swipe_behavior', { allow_vertical_swipe: false })
   }, [])
 
   return (
